@@ -1,4 +1,3 @@
-import autoprefixer from 'autoprefixer';
 import FaviconsWebpackPlugin from 'favicons-webpack-plugin';
 import { join, resolve } from 'path';
 import webpack from 'webpack';
@@ -94,12 +93,5 @@ export const plugins = [
     }),
     new webpack.DefinePlugin({
         TMDB_API_KEY: 'c69d299c41183849004c0aea72f832c0',
-    }),
-    new webpack.LoaderOptionsPlugin({
-        options: {
-            postcss: () => [
-                autoprefixer({ browsers: ['last 3 versions'] })
-            ],
-        },
     }),
 ];

@@ -5,6 +5,7 @@ import { Store } from 'redux';
 import { injectGlobal } from 'styled-components';
 
 // Components.
+import Shell from './components/Shell';
 import Movies from './pages/Movies';
 
 // Store.
@@ -97,15 +98,17 @@ const store: Store<ApplicationState> = configureStore();
 const App: React.SFC = () => (
     <Provider store={store}>
         <BrowserRouter>
-            <Switch>
-                <Route
-                    exact
-                    path='/movies'
-                    component={ Movies } />
-                <Redirect
-                    from="*"
-                    to="/movies" />
-            </Switch>
+            <Shell>
+                <Switch>
+                    <Route
+                        exact
+                        path='/movies'
+                        component={ Movies } />
+                    <Redirect
+                        from="*"
+                        to="/movies" />
+                </Switch>
+            </Shell>
         </BrowserRouter>
     </Provider>
 );

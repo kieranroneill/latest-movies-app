@@ -6,34 +6,38 @@ import {
 } from 'redux';
 
 // Action creators.
-import { getGenres } from '../../store/genres/actionCreators';
+import { setPageTitle } from '../../store/layout/actionsCreators';
 
 // Components.
-import Page from '../../components/Page';
+import Main from '../../components/Main';
 
 // States.
 import { ApplicationState } from '../../store';
 
+// Types.
+import { GenresState } from '../../store/genres/types';
+
 interface Props {
-    getGenres: typeof getGenres;
+    genres: GenresState;
+    setPageTitle: typeof setPageTitle;
 }
 
 class Movies extends React.PureComponent<Props> {
     componentDidMount(): void {
-        this.props.getGenres();
+        this.props.setPageTitle('New Movies');
     }
 
     render(): JSX.Element  {
         return (
-            <Page>
+            <Main>
                 <h1>Hello human!</h1>
-            </Page>
+            </Main>
         );
     }
 }
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
-    getGenres: bindActionCreators(getGenres, dispatch),
+    setPageTitle: bindActionCreators(setPageTitle, dispatch),
 });
 const mapStateToProps = (state: ApplicationState) => {
     return {

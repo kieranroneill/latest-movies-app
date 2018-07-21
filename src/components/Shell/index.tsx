@@ -1,6 +1,9 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
+// Components.
+import Header from '../Header';
+
 // Styles.
 import palette from '../../styles/palette';
 import typography from '../../styles/typography';
@@ -9,9 +12,6 @@ interface Props {
     children: React.ReactNode;
 }
 
-const Main = styled.main`
-    width: 100%;
-`;
 const Wrapper = styled.div`
     background-color: ${palette.primary.white};
     display: flex;
@@ -22,16 +22,15 @@ const Wrapper = styled.div`
     width: 100%;
 `;
 
-const Page: React.SFC<Props> = (props: Props) => (
+const Shell: React.SFC<Props> = (props: Props) => (
     <Wrapper>
-        <Main>
-            {props.children}
-        </Main>
+        <Header />
+        {props.children}
     </Wrapper>
 );
 
-export default Page;
+export default Shell;
 export {
-    Page,
+    Shell,
     Props
 };

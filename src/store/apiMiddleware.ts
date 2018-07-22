@@ -24,22 +24,31 @@ export function apiMiddleware(): Middleware {
 
             requestAction = action[ApiActionTypes.CallApi];
 
-            dispatch({ type: requestAction.actionTypes[0] });
+            // Dispatch an action to the reducer to notify the request has started.
+            dispatch({
+                type: requestAction.actionTypes[0]
+            });
 
             try {
                 response = await axios({
                     data: requestAction.body,
                     method: requestAction.method,
-                    url: `${baseUrl}${requestAction.url}?api_key=${apiKey}`,
+                    params: {
+                        ...requestAction.params,
+                        api_key: apiKey,
+                    },
+                    url: `${baseUrl}${requestAction.url}`,
                     validateStatus: (status: number) => status >= 200 && status < 400,
                 });
 
+                // Dispatch an action to the reducer to notify an success.
                 dispatch({
                     type: requestAction.actionTypes[1],
                     payload: response.data,
                     statusCode: response.status,
                 });
             } catch (error) {
+                // Dispatch an action to the reducer to notify an error.
                 dispatch({
                     type: requestAction.actionTypes[2],
                 });

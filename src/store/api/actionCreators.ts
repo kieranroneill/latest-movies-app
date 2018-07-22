@@ -1,21 +1,24 @@
 // Types.
 import {
     ApiActionTypes,
-    HttpMethod
+    HttpMethod,
+    Params
 } from './types';
 
 export function callApi(
     actionTypes: [string, string, string],
     url: string,
     method: HttpMethod,
+    params?: Params,
     body?: any
 ) {
     return {
         type: ApiActionTypes.CallApi,
         [ApiActionTypes.CallApi]: {
+            actionTypes,
             body,
             method,
-            actionTypes,
+            params,
             url,
         },
     };

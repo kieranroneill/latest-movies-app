@@ -31,5 +31,38 @@ describe('src/store/api/actionCreators', () => {
                 }
             });
         });
+
+        it('should create an action to call the api with optional arguments', () => {
+            const actionTypes: [string, string, string] = [
+                'REQUEST',
+                'SUCCESS',
+                'ERROR'
+            ];
+            const body: any = {
+                hello: 'Robot',
+            };
+            const method: HttpMethod = 'POST';
+            const params: { [key: string]: string | number } = {
+                hello: 'Human',
+            };
+            const url: string = 'http://element43.xyz';
+
+            expect(callApi(
+                actionTypes,
+                url,
+                method,
+                body,
+                params
+            )).toEqual({
+                type: ApiActionTypes.CallApi,
+                [ApiActionTypes.CallApi]: {
+                    actionTypes,
+                    body,
+                    method,
+                    params,
+                    url,
+                }
+            });
+        });
     });
 });

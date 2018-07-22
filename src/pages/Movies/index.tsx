@@ -12,6 +12,7 @@ import { setPageTitle } from '../../store/layout/actionsCreators';
 import { getMovies } from '../../store/movies/actionCreators';
 
 // Components.
+import Button from '@material-ui/core/Button';
 import FilterPanel from './components/FilterPanel';
 import Grid from '@material-ui/core/Grid';
 import Main from '../../components/Main';
@@ -42,6 +43,13 @@ interface Props {
     setPageTitle: typeof setPageTitle;
 }
 
+const LoadMoreButtonContainer = styled.div`
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 1rem 0;
+`;
 const ProgressContainer = styled.div`
   align-items: center;
   display: flex;
@@ -60,6 +68,7 @@ class Movies extends React.PureComponent<Props> {
         super(props);
 
         // Bind functions.
+        this.onLoadMoreClick = this.onLoadMoreClick.bind(this);
         this.onScroll = this.onScroll.bind(this);
     }
 
@@ -89,6 +98,14 @@ class Movies extends React.PureComponent<Props> {
 
         if (movies.results.length < 1) {
             this.props.getMovies();
+        }
+    }
+
+    onLoadMoreClick(): void {
+        const { movies } = this.props;
+
+        if (!movies.loading) {
+            this.props.getMovies(movies.page + 1);
         }
     }
 
@@ -126,12 +143,19 @@ class Movies extends React.PureComponent<Props> {
                         }
                     </Grid>
                     {
-                        movies.loading &&
-                            <ProgressContainer>
-                                <CircularProgress
-                                    size={50}
-                                    style={{ color: palette.primary.grey }}/>
-                            </ProgressContainer>
+                        (
+                            movies.loading ?
+                                <ProgressContainer>
+                                    <CircularProgress
+                                        size={50}
+                                        style={{ color: palette.primary.grey }}/>
+                                </ProgressContainer> :
+                                <LoadMoreButtonContainer>
+                                    <Button onClick={this.onLoadMoreClick}>
+                                        Load more
+                                    </Button>
+                                </LoadMoreButtonContainer>
+                        )
                     }
                 </Wrapper>
             </Main>

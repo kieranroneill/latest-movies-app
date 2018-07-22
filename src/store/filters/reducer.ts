@@ -8,7 +8,7 @@ import {
 } from './types';
 
 const initialState: FiltersState = {
-    averageRating: 10,
+    averageRating: 3,
     genreIds: [],
 };
 
@@ -40,6 +40,15 @@ const reducer: Reducer<FiltersState, FiltersActions> = (state: FiltersState = in
                 ...state,
                 genreIds,
             };
+        case FiltersActionTypes.SetAverageRating:
+            if (action.averageRating >= 0 && action.averageRating <= 10) {
+                return {
+                    ...state,
+                    averageRating: action.averageRating,
+                };
+            }
+
+            return state;
         default:
             return state;
     }

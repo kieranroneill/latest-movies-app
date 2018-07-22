@@ -4,7 +4,8 @@ import { FiltersActionTypes } from './types';
 // Action creators.
 import {
     addGenreId,
-    removeGenreId
+    removeGenreId,
+    setAverageRating
 } from './actionsCreators';
 
 describe('src/store/filters/actionsCreators', () => {
@@ -26,6 +27,17 @@ describe('src/store/filters/actionsCreators', () => {
             expect(removeGenreId(id)).toEqual({
                 id,
                 type: FiltersActionTypes.RemoveGenreId,
+            });
+        });
+    });
+
+    describe('setAverageRating()', () => {
+        it('should create an action to remove a genre id', () => {
+            const averageRating: number = 6;
+
+            expect(setAverageRating(averageRating)).toEqual({
+                averageRating,
+                type: FiltersActionTypes.SetAverageRating,
             });
         });
     });

@@ -4,7 +4,8 @@ import { ActionCreator } from 'redux';
 import {
     AddGenreIdAction,
     FiltersActionTypes,
-    RemoveGenreIdAction
+    RemoveGenreIdAction,
+    SetAverageRatingAction
 } from './types';
 
 export const addGenreId: ActionCreator<AddGenreIdAction> = (id: number) => ({
@@ -15,4 +16,9 @@ export const addGenreId: ActionCreator<AddGenreIdAction> = (id: number) => ({
 export const removeGenreId: ActionCreator<RemoveGenreIdAction> = (id: number) => ({
     id,
     type: FiltersActionTypes.RemoveGenreId,
+});
+
+export const setAverageRating: ActionCreator<SetAverageRatingAction> = (averageRating: number) => ({
+    averageRating,
+    type: FiltersActionTypes.SetAverageRating,
 });

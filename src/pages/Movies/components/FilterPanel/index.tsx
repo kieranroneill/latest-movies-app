@@ -9,7 +9,8 @@ import styled from 'styled-components';
 // Action creators.
 import {
     addGenreId,
-    removeGenreId
+    removeGenreId,
+    setAverageRating
 } from '../../../../store/filters/actionsCreators';
 
 // Components.
@@ -22,6 +23,7 @@ import FormControl from '@material-ui/core/FormControl';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormLabel from '@material-ui/core/FormLabel';
+import Slider from '@material-ui/lab/Slider';
 import Typography from '@material-ui/core/Typography';
 
 // States.
@@ -41,14 +43,31 @@ interface Props {
     filters: FiltersState;
     genres: GenresState;
     removeGenreId: typeof removeGenreId;
+    setAverageRating: typeof setAverageRating;
 }
 
 const FilterExpansionPanel = styled(ExpansionPanel)`
   margin: 0 0 1rem;
 `;
+const ControlContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+const SliderContainer = styled.div`
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+`;
 
 class FilterPanel extends React.PureComponent<Props> {
-    onChange: (id: number) =>
+    constructor(props: Props) {
+        super(props);
+
+        // Bind functions.
+        this.onSliderChange = this.onSliderChange.bind(this);
+    }
+
+    onGenreChange: (id: number) =>
         (event: React.ChangeEvent<HTMLInputElement>) =>
             void = (id: number) =>
         (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -58,6 +77,11 @@ class FilterPanel extends React.PureComponent<Props> {
 
         return this.props.removeGenreId(id);
     };
+
+    onSliderChange(event: React.ChangeEvent<{}>, value: number): void {
+        console.dir(event);
+        this.props.setAverageRating(value);
+    }
 
     render(): JSX.Element {
         const {
@@ -71,27 +95,46 @@ class FilterPanel extends React.PureComponent<Props> {
                     <Typography>Filter by...</Typography>
                 </ExpansionPanelSummary>
                 <ExpansionPanelDetails>
-                    <FormControl component="fieldset">
-                        <FormLabel component="legend">Genre</FormLabel>
-                        <FormGroup row>
-                            {
-                                genres.results.map((item: Genre, index: number) => (
-                                    <FormControlLabel
-                                        control={
-                                            <Checkbox
-                                                checked={filters.genreIds.indexOf(item.id) > -1}
-                                                key={index}
-                                                onChange={this.onChange(item.id)}
-                                                value={item.id.toString()}
-                                            />
-                                        }
-                                        key={index}
-                                        label={item.name}
-                                    />
-                                ))
-                            }
-                        </FormGroup>
-                    </FormControl>
+                    <ControlContainer>
+                        <FormControl
+                            component="fieldset"
+                            style={{ margin: '0 0 1rem' }}>
+                            <FormLabel component="legend">Genre</FormLabel>
+                            <FormGroup row>
+                                {
+                                    genres.results.map((item: Genre, index: number) => (
+                                        <FormControlLabel
+                                            control={
+                                                <Checkbox
+                                                    checked={filters.genreIds.indexOf(item.id) > -1}
+                                                    key={index}
+                                                    onChange={this.onGenreChange(item.id)}
+                                                    value={item.id.toString()}
+                                                />
+                                            }
+                                            key={index}
+                                            label={item.name}
+                                        />
+                                    ))
+                                }
+                            </FormGroup>
+                        </FormControl>
+                        <FormControl
+                            component="fieldset"
+                            style={{ margin: '0 0 1rem' }}>
+                            <FormLabel component="legend">Average rating</FormLabel>
+                            <SliderContainer>
+                                <p>0</p>
+                                <Slider
+                                    onChange={this.onSliderChange}
+                                    max={10}
+                                    min={0}
+                                    step={0.5}
+                                    value={filters.averageRating} />
+                                <p>{filters.averageRating}</p>
+                            </SliderContainer>
+                        </FormControl>
+                    </ControlContainer>
                 </ExpansionPanelDetails>
             </FilterExpansionPanel>
         );
@@ -101,6 +144,7 @@ class FilterPanel extends React.PureComponent<Props> {
 const mapDispatchToProps = (dispatch: Dispatch) => ({
     addGenreId: bindActionCreators(addGenreId, dispatch),
     removeGenreId: bindActionCreators(removeGenreId, dispatch),
+    setAverageRating: bindActionCreators(setAverageRating, dispatch),
 });
 const mapStateToProps = (state: ApplicationState) => {
     return {

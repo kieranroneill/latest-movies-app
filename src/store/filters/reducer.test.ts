@@ -3,7 +3,8 @@ import {
     AddGenreIdAction,
     FiltersActionTypes,
     FiltersState,
-    RemoveGenreIdAction
+    RemoveGenreIdAction,
+    SetAverageRatingAction
 } from './types';
 
 // Reducer.
@@ -74,6 +75,40 @@ describe('src/store/filters/reducer', () => {
             scope.initialState.genreIds = [2];
 
             expect(reducer(scope.initialState, action).genreIds.length).toBe(1);
+        });
+    });
+
+    describe('FiltersActionTypes.SetAverageRating', () => {
+        it('should not set the average rating if it is less than 0', () => {
+            const averageRating: number = -1;
+            const action: SetAverageRatingAction = {
+                averageRating,
+                type: FiltersActionTypes.SetAverageRating,
+            };
+
+            expect(reducer(scope.initialState, action).averageRating).toBe(scope.initialState.averageRating);
+        });
+
+        it('should not set the average rating if it is greater than 10', () => {
+            const averageRating: number = 11;
+            const action: SetAverageRatingAction = {
+                averageRating,
+                type: FiltersActionTypes.SetAverageRating,
+            };
+
+            expect(reducer(scope.initialState, action).averageRating).toBe(scope.initialState.averageRating);
+        });
+
+        it('should set the average rating if it is between 0 and 10', () => {
+            const averageRating: number = 7;
+            const action: SetAverageRatingAction = {
+                averageRating,
+                type: FiltersActionTypes.SetAverageRating,
+            };
+
+            scope.initialState.averageRating = 3;
+
+            expect(reducer(scope.initialState, action).averageRating).toBe(averageRating);
         });
     });
 });

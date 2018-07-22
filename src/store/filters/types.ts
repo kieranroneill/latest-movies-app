@@ -16,6 +16,7 @@ export interface FiltersState {
 export enum FiltersActionTypes {
     AddGenreId = '@filters/ADD_GENRE_ID',
     RemoveGenreId = '@filters/REMOVE_GENRE_ID',
+    SetAverageRating = '@filters/SET_AVERAGE_RATING',
 }
 
 //====================================================
@@ -32,5 +33,11 @@ export interface RemoveGenreIdAction extends Action {
     type: FiltersActionTypes.RemoveGenreId;
 }
 
+export interface SetAverageRatingAction extends Action {
+    averageRating: number;
+    type: FiltersActionTypes.SetAverageRating;
+}
+
 export type FiltersActions = AddGenreIdAction
-    | RemoveGenreIdAction;
+    | RemoveGenreIdAction
+    | SetAverageRatingAction;

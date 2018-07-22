@@ -1,15 +1,18 @@
 import axios, { AxiosResponse } from 'axios';
 import { Middleware } from 'redux';
 
+// Config.
+import {
+    apiBaseUrl,
+    apiKey
+} from '../config/defaults';
+
 // Types.
 import {
     ApiActionTypes,
     CallApiAction,
     RequestAction
 } from './api/types';
-
-const apiKey: string = 'c69d299c41183849004c0aea72f832c0';
-const baseUrl: string = 'https://api.themoviedb.org/3';
 
 export function apiMiddleware(): Middleware {
     return ({ dispatch }) => {
@@ -37,7 +40,7 @@ export function apiMiddleware(): Middleware {
                         ...requestAction.params,
                         api_key: apiKey,
                     },
-                    url: `${baseUrl}${requestAction.url}`,
+                    url: `${apiBaseUrl}${requestAction.url}`,
                     validateStatus: (status: number) => status >= 200 && status < 400,
                 });
 

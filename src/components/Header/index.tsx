@@ -17,7 +17,7 @@ interface Props {
 }
 
 const Header: React.SFC<Props> = (props: Props) => (
-    <AppBar>
+    <AppBar position="static">
         <Toolbar>
             <Typography
                 color="inherit"

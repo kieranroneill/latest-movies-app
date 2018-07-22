@@ -13,9 +13,9 @@ interface Props {
 }
 
 const Wrapper = styled.div`
-    background-color: ${palette.primary.white};
+    background-color: ${palette.primary.lightGrey};
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     font-size: 100%;
     font-family: ${typography.primaryFontFamily};
     min-height: 100vh;

@@ -16,6 +16,12 @@ import palette from './styles/palette';
 
 injectGlobal`
   @font-face {
+    font-family: "Material Icons";
+    font-style: normal;
+    font-weight: 400;
+    src: url("${require('./fonts/material-icons/MaterialIcons.woff2')}") format("woff2");
+  }
+  @font-face {
     font-family: "Roboto";
     font-style: normal;
     font-weight: 400;
@@ -91,6 +97,22 @@ injectGlobal`
       color: ${palette.primary.grey};
     }
   }
+  
+  .material-icons {
+    font-family: "Material Icons", sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: "liga";
+    -webkit-font-smoothing: antialiased;
+}
 `;
 
 const store: Store<ApplicationState> = configureStore();

@@ -7,6 +7,7 @@ import {
 import styled from 'styled-components';
 
 // Action creators.
+import { getGenres } from '../../store/genres/actionCreators';
 import { setPageTitle } from '../../store/layout/actionsCreators';
 import { getMovies } from '../../store/movies/actionCreators';
 
@@ -27,6 +28,7 @@ import {
 
 interface Props {
     genres: GenresState;
+    getGenres: typeof getGenres;
     getMovies: typeof getMovies;
     movies: MoviesState;
     setPageTitle: typeof setPageTitle;
@@ -41,6 +43,7 @@ const Wrapper = styled.div`
 class Movies extends React.PureComponent<Props> {
     componentDidMount(): void {
         this.props.setPageTitle('New Movies');
+        this.props.getGenres();
         this.props.getMovies();
     }
 
@@ -71,6 +74,7 @@ class Movies extends React.PureComponent<Props> {
 }
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
+    getGenres: bindActionCreators(getGenres, dispatch),
     getMovies: bindActionCreators(getMovies, dispatch),
     setPageTitle: bindActionCreators(setPageTitle, dispatch),
 });

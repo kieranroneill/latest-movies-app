@@ -2,6 +2,7 @@ import { Reducer } from 'redux';
 
 // Types.
 import {
+    Movie,
     MoviesActions,
     MoviesActionTypes,
     MoviesState
@@ -32,7 +33,7 @@ const reducer: Reducer<MoviesState, MoviesActions> = (state: MoviesState = initi
                 results: (
                     action.payload.page > 1 ?
                         [...state.results , ...action.payload.results] : // If we are a new page, concat.
-                        action.payload.results
+                        action.payload.results.sort((a: Movie, b: Movie) => b.popularity - a.popularity) // Sort by popularity on initial.
                 ),
                 loading: false,
                 page: action.payload.page,

@@ -51,8 +51,8 @@ describe('src/store/api/actionCreators', () => {
                 actionTypes,
                 url,
                 method,
-                body,
-                params
+                params,
+                body
             )).toEqual({
                 type: ApiActionTypes.CallApi,
                 [ApiActionTypes.CallApi]: {

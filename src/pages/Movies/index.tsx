@@ -26,6 +26,7 @@ import { ApplicationState } from '../../store';
 import palette from '../../styles/palette'
 
 // Types.
+import { FiltersState } from '../../store/filters/types';
 import { GenresState } from '../../store/genres/types';
 import {
     Movie,
@@ -33,6 +34,7 @@ import {
 } from '../../store/movies/types';
 
 interface Props {
+    filters: FiltersState;
     genres: GenresState;
     getGenres: typeof getGenres;
     getMovies: typeof getMovies;
@@ -58,8 +60,25 @@ class Movies extends React.PureComponent<Props> {
         super(props);
 
         // Bind functions.
-        this.onGenreChange = this.onGenreChange.bind(this);
         this.onScroll = this.onScroll.bind(this);
+    }
+
+    private getFilteredMovies(): Movie[] {
+        const {
+            filters,
+            movies
+        } = this.props;
+
+        if (filters.genreIds.length <= 0) {
+            return movies.results;
+        }
+
+        // Filter by genre.
+        return movies.results.filter((item: Movie) =>
+            item.genre_ids.some((value: number) =>
+                filters.genreIds.indexOf(value) > -1
+            )
+        );
     }
 
     componentDidMount(): void {
@@ -71,10 +90,6 @@ class Movies extends React.PureComponent<Props> {
         if (movies.results.length < 1) {
             this.props.getMovies();
         }
-    }
-
-    onGenreChange(id: number, checked: boolean): void {
-        console.log(`id: ${id}, checked: ${checked}`);
     }
 
     onScroll(): void {
@@ -101,7 +116,7 @@ class Movies extends React.PureComponent<Props> {
                         justify="center"
                         spacing={16}>
                         {
-                            movies.results.map((value: Movie, index: number) =>
+                            this.getFilteredMovies().map((value: Movie, index: number) =>
                                 <Grid
                                     item
                                     key={index}>
@@ -131,6 +146,7 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
 });
 const mapStateToProps = (state: ApplicationState) => {
     return {
+        filters: state.filters,
         genres: state.genres,
         movies: state.movies,
     }

@@ -20,6 +20,10 @@ describe('src/pages/Movies', () => {
 
     beforeEach(() => {
         const props: Props = {
+            filters: {
+                averageRating: 10,
+                genreIds: [],
+            },
             genres: {
                 loading: false,
                 results: [],

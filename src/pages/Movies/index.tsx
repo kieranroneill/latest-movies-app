@@ -15,9 +15,14 @@ import { getMovies } from '../../store/movies/actionCreators';
 import Grid from '@material-ui/core/Grid';
 import Main from '../../components/Main';
 import MovieTile from './components/MovieTile';
+import CircularProgress from '@material-ui/core/CircularProgress';
+import ScrollListener from '../../components/ScrollListener';
 
 // States.
 import { ApplicationState } from '../../store';
+
+// Styles.
+import palette from '../../styles/palette'
 
 // Types.
 import { GenresState } from '../../store/genres/types';
@@ -34,6 +39,13 @@ interface Props {
     setPageTitle: typeof setPageTitle;
 }
 
+const ProgressContainer = styled.div`
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 1rem 0;
+`;
 const Wrapper = styled.div`
   margin: 0 auto;
   max-width: 1440px;
@@ -41,10 +53,33 @@ const Wrapper = styled.div`
 `;
 
 class Movies extends React.PureComponent<Props> {
+    constructor(props: Props) {
+        super(props);
+
+        // Bind functions.
+        this.onScroll = this.onScroll.bind(this);
+    }
+
     componentDidMount(): void {
+        const { movies } = this.props;
+
         this.props.setPageTitle('New Movies');
         this.props.getGenres();
-        this.props.getMovies();
+
+        if (movies.results.length < 1) {
+            this.props.getMovies();
+        }
+    }
+
+    onScroll(): void {
+        const { movies } = this.props;
+
+        if (
+            (window.innerHeight + window.scrollY) >= document.body.offsetHeight &&
+            !movies.loading
+        ) {
+            this.props.getMovies(movies.page + 1);
+        }
     }
 
     render(): JSX.Element  {
@@ -52,6 +87,7 @@ class Movies extends React.PureComponent<Props> {
 
         return (
             <Main>
+                <ScrollListener onScroll={this.onScroll}/>
                 <Wrapper>
                     <Grid
                         container
@@ -67,6 +103,14 @@ class Movies extends React.PureComponent<Props> {
                             )
                         }
                     </Grid>
+                    {
+                        movies.loading &&
+                            <ProgressContainer>
+                                <CircularProgress
+                                    size={50}
+                                    style={{ color: palette.primary.grey }}/>
+                            </ProgressContainer>
+                    }
                 </Wrapper>
             </Main>
         );

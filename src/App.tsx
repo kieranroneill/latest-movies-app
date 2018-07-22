@@ -51,7 +51,6 @@ injectGlobal`
   html,
   body,
   #root {
-    height: 100%;
     margin: 0;
     width: 100%;
   }

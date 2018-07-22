@@ -33,7 +33,7 @@ const Background = styled<{ imageUrl: string | null }, 'div'>('div')`
   background: url("${props => 
     props.imageUrl ? 
         `${imageBaseUrl}/w500/${props.imageUrl}` : 
-        ''
+        require('./assets/placeholder.png')
   }") no-repeat 50% 50%;
   background-size: cover;
   bottom: 0;

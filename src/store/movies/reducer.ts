@@ -29,7 +29,11 @@ const reducer: Reducer<MoviesState, MoviesActions> = (state: MoviesState = initi
         case MoviesActionTypes.GetMoviesSuccess:
             return {
                 ...state,
-                results: action.payload.results,
+                results: (
+                    action.payload.page > 1 ?
+                        [...state.results , ...action.payload.results] : // If we are a new page, concat.
+                        action.payload.results
+                ),
                 loading: false,
                 page: action.payload.page,
                 totalPages: action.payload.total_pages,

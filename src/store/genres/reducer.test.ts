@@ -55,7 +55,7 @@ describe('src/store/genres/reducer', () => {
     });
 
     describe('GenresActionTypes.GetGenresSuccess', () => {
-        it('should stop loading and set an error message', () => {
+        it('should stop loading and set the genres', () => {
             const genres: Genre[] = [
                 {
                     id: 1234,

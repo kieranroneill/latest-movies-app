@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`src/components/Shell <Movies /> snapshots should match the snapshot with default props 1`] = `
+exports[`src/pages/Movies <Movies /> snapshots should match the snapshot with default props 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],

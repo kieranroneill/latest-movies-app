@@ -33,6 +33,7 @@ ShallowWrapper {
           Some catchy title
         </WithStyles(Typography)>
       </WithStyles(Toolbar)>,
+      "position": "static",
     },
     "ref": null,
     "rendered": Object {
@@ -79,6 +80,7 @@ ShallowWrapper {
             Some catchy title
           </WithStyles(Typography)>
         </WithStyles(Toolbar)>,
+        "position": "static",
       },
       "ref": null,
       "rendered": Object {

@@ -12,6 +12,7 @@ import { setPageTitle } from '../../store/layout/actionsCreators';
 import { getMovies } from '../../store/movies/actionCreators';
 
 // Components.
+import FilterPanel from './components/FilterPanel';
 import Grid from '@material-ui/core/Grid';
 import Main from '../../components/Main';
 import MovieTile from './components/MovieTile';
@@ -57,6 +58,7 @@ class Movies extends React.PureComponent<Props> {
         super(props);
 
         // Bind functions.
+        this.onGenreChange = this.onGenreChange.bind(this);
         this.onScroll = this.onScroll.bind(this);
     }
 
@@ -69,6 +71,10 @@ class Movies extends React.PureComponent<Props> {
         if (movies.results.length < 1) {
             this.props.getMovies();
         }
+    }
+
+    onGenreChange(id: number, checked: boolean): void {
+        console.log(`id: ${id}, checked: ${checked}`);
     }
 
     onScroll(): void {
@@ -89,6 +95,7 @@ class Movies extends React.PureComponent<Props> {
             <Main>
                 <ScrollListener onScroll={this.onScroll}/>
                 <Wrapper>
+                    <FilterPanel />
                     <Grid
                         container
                         justify="center"

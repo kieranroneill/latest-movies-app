@@ -77,17 +77,19 @@ class Movies extends React.PureComponent<Props> {
             filters,
             movies
         } = this.props;
+        let results: Movie[] = movies.results;
 
-        if (filters.genreIds.length <= 0) {
-            return movies.results;
+        // If any genres have been selected, filter by genre.
+        if (filters.genreIds.length > 0) {
+            results = movies.results.filter((item: Movie) =>
+                item.genre_ids.some((value: number) =>
+                    filters.genreIds.indexOf(value) > -1
+                )
+            );
         }
 
-        // Filter by genre.
-        return movies.results.filter((item: Movie) =>
-            item.genre_ids.some((value: number) =>
-                filters.genreIds.indexOf(value) > -1
-            )
-        );
+        // Filter by average rating.
+        return results.filter((item: Movie) => item.vote_average >= filters.averageRating);
     }
 
     componentDidMount(): void {

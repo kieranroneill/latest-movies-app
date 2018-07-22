@@ -46,9 +46,6 @@ interface Props {
     setAverageRating: typeof setAverageRating;
 }
 
-const FilterExpansionPanel = styled(ExpansionPanel)`
-  margin: 0 0 1rem;
-`;
 const ControlContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -57,6 +54,10 @@ const SliderContainer = styled.div`
   align-items: center;
   display: flex;
   flex-direction: row;
+`;
+const Wrapper = styled.div`
+  margin: 0 auto 1rem;
+  max-width: 800px;
 `;
 
 class FilterPanel extends React.PureComponent<Props> {
@@ -90,53 +91,55 @@ class FilterPanel extends React.PureComponent<Props> {
         } = this.props;
 
         return (
-            <FilterExpansionPanel>
-                <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-                    <Typography>Filter by...</Typography>
-                </ExpansionPanelSummary>
-                <ExpansionPanelDetails>
-                    <ControlContainer>
-                        <FormControl
-                            component="fieldset"
-                            style={{ margin: '0 0 1rem' }}>
-                            <FormLabel component="legend">Genre</FormLabel>
-                            <FormGroup row>
-                                {
-                                    genres.results.map((item: Genre, index: number) => (
-                                        <FormControlLabel
-                                            control={
-                                                <Checkbox
-                                                    checked={filters.genreIds.indexOf(item.id) > -1}
-                                                    key={index}
-                                                    onChange={this.onGenreChange(item.id)}
-                                                    value={item.id.toString()}
-                                                />
-                                            }
-                                            key={index}
-                                            label={item.name}
-                                        />
-                                    ))
-                                }
-                            </FormGroup>
-                        </FormControl>
-                        <FormControl
-                            component="fieldset"
-                            style={{ margin: '0 0 1rem' }}>
-                            <FormLabel component="legend">Average rating</FormLabel>
-                            <SliderContainer>
-                                <p>0</p>
-                                <Slider
-                                    onChange={this.onSliderChange}
-                                    max={10}
-                                    min={0}
-                                    step={0.5}
-                                    value={filters.averageRating} />
-                                <p>{filters.averageRating}</p>
-                            </SliderContainer>
-                        </FormControl>
-                    </ControlContainer>
-                </ExpansionPanelDetails>
-            </FilterExpansionPanel>
+            <Wrapper>
+                <ExpansionPanel>
+                    <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+                        <Typography>Filter by...</Typography>
+                    </ExpansionPanelSummary>
+                    <ExpansionPanelDetails>
+                        <ControlContainer>
+                            <FormControl
+                                component="fieldset"
+                                style={{ margin: '0 0 1rem' }}>
+                                <FormLabel component="legend">Genre</FormLabel>
+                                <FormGroup row>
+                                    {
+                                        genres.results.map((item: Genre, index: number) => (
+                                            <FormControlLabel
+                                                control={
+                                                    <Checkbox
+                                                        checked={filters.genreIds.indexOf(item.id) > -1}
+                                                        key={index}
+                                                        onChange={this.onGenreChange(item.id)}
+                                                        value={item.id.toString()}
+                                                    />
+                                                }
+                                                key={index}
+                                                label={item.name}
+                                            />
+                                        ))
+                                    }
+                                </FormGroup>
+                            </FormControl>
+                            <FormControl
+                                component="fieldset"
+                                style={{ margin: '0 0 1rem' }}>
+                                <FormLabel component="legend">Average rating</FormLabel>
+                                <SliderContainer>
+                                    <p>0</p>
+                                    <Slider
+                                        onChange={this.onSliderChange}
+                                        max={10}
+                                        min={0}
+                                        step={0.5}
+                                        value={filters.averageRating} />
+                                    <p>{filters.averageRating}</p>
+                                </SliderContainer>
+                            </FormControl>
+                        </ControlContainer>
+                    </ExpansionPanelDetails>
+                </ExpansionPanel>
+            </Wrapper>
         );
     }
 }

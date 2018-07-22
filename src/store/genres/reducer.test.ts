@@ -21,8 +21,8 @@ describe('src/store/genres/reducer', () => {
     beforeEach(() => {
         scope = {
             initialState: {
-                items: [],
                 loading: false,
+                results: [],
             },
         };
     });
@@ -76,7 +76,7 @@ describe('src/store/genres/reducer', () => {
             state = reducer(scope.initialState, action);
 
             expect(state.loading).toBe(false);
-            expect(state.items).toEqual(genres);
+            expect(state.results).toEqual(genres);
         });
     });
 });

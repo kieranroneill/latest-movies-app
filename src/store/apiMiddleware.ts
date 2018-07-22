@@ -12,7 +12,7 @@ const apiKey: string = 'c69d299c41183849004c0aea72f832c0';
 const baseUrl: string = 'https://api.themoviedb.org/3';
 
 export function apiMiddleware(): Middleware {
-    return ({ dispatch, getState }) => {
+    return ({ dispatch }) => {
         return (next) => async (action: CallApiAction) => {
             let requestAction: RequestAction;
             let response: AxiosResponse;
@@ -36,9 +36,7 @@ export function apiMiddleware(): Middleware {
 
                 dispatch({
                     type: requestAction.actionTypes[1],
-                    payload: {
-                        genres: response.data.genres,
-                    },
+                    payload: response.data,
                     statusCode: response.status,
                 });
             } catch (error) {

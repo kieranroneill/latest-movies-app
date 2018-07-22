@@ -22,8 +22,8 @@ describe('src/store/movies/reducer', () => {
         scope = {
             initialState: {
                 loading: false,
-                movies: [],
                 page: 0,
+                results: [],
                 totalPages: 0,
             },
         };
@@ -56,8 +56,9 @@ describe('src/store/movies/reducer', () => {
         });
     });
 
-    describe('GenresActionTypes.GetGenresSuccess', () => {
+    describe('MoviesActionTypes.GetMoviesSuccess', () => {
         it('should stop loading and set the movies', () => {
+            const page: number = 0;
             const results: Movie[] = [
                 {
                     adult: false,
@@ -76,9 +77,12 @@ describe('src/store/movies/reducer', () => {
                     vote_count: 1989,
                 }
             ];
+            const total_pages: number = 14;
             const action: MoviesSuccessAction = {
                 payload: {
+                    page,
                     results,
+                    total_pages,
                 },
                 type: MoviesActionTypes.GetMoviesSuccess,
                 statusCode: 200,
@@ -90,7 +94,9 @@ describe('src/store/movies/reducer', () => {
             state = reducer(scope.initialState, action);
 
             expect(state.loading).toBe(false);
-            expect(state.movies).toEqual(results);
+            expect(state.page).toEqual(page);
+            expect(state.results).toEqual(results);
+            expect(state.totalPages).toEqual(total_pages);
         });
     });
 });

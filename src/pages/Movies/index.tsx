@@ -17,10 +17,12 @@ import { ApplicationState } from '../../store';
 
 // Types.
 import { GenresState } from '../../store/genres/types';
+import { MoviesState } from '../../store/movies/types';
 
 interface Props {
     genres: GenresState;
     getMovies: typeof getMovies;
+    movies: MoviesState;
     setPageTitle: typeof setPageTitle;
 }
 
@@ -46,6 +48,7 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
 const mapStateToProps = (state: ApplicationState) => {
     return {
         genres: state.genres,
+        movies: state.movies,
     }
 };
 

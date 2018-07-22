@@ -9,8 +9,8 @@ import {
 
 const initialState: MoviesState = {
     loading: false,
-    movies: [],
     page: 0,
+    results: [],
     totalPages: 0,
 };
 
@@ -29,8 +29,10 @@ const reducer: Reducer<MoviesState, MoviesActions> = (state: MoviesState = initi
         case MoviesActionTypes.GetMoviesSuccess:
             return {
                 ...state,
-                movies: action.payload.results,
+                results: action.payload.results,
                 loading: false,
+                page: action.payload.page,
+                totalPages: action.payload.total_pages,
             };
         default:
             return state;

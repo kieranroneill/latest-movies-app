@@ -44,6 +44,6 @@ export interface Genre {
 //====================================================
 
 export interface GenresState {
-    items: Genre[];
     loading: boolean;
+    results: Genre[];
 }

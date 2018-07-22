@@ -8,8 +8,8 @@ import {
 } from './types';
 
 const initialState: GenresState = {
-    items: [],
     loading: false,
+    results: [],
 };
 
 const reducer: Reducer<GenresState, GenresActions> = (state: GenresState = initialState, action: GenresActions) => {
@@ -27,8 +27,8 @@ const reducer: Reducer<GenresState, GenresActions> = (state: GenresState = initi
         case GenresActionTypes.GetGenresSuccess:
             return {
                 ...state,
-                items: action.payload.genres,
                 loading: false,
+                results: action.payload.genres,
             };
         default:
             return state;

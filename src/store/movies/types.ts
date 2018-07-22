@@ -11,8 +11,8 @@ import {
 
 export enum MoviesActionTypes {
     GetMoviesError = '@movies/GET_MOVIES_ERROR',
-    GetMoviesRequest = '@genres/GET_MOVIES_REQUEST',
-    GetMoviesSuccess = '@genres/GET_MOVIES_SUCCESS',
+    GetMoviesRequest = '@movies/GET_MOVIES_REQUEST',
+    GetMoviesSuccess = '@movies/GET_MOVIES_SUCCESS',
 }
 
 // ====================================================
@@ -23,7 +23,11 @@ export type MoviesErrorAction = ApiErrorAction<MoviesActionTypes.GetMoviesError>
 
 export type MoviesRequestAction = ApiRequestAction<MoviesActionTypes.GetMoviesRequest>;
 
-export type MoviesSuccessAction = ApiSuccessAction<MoviesActionTypes.GetMoviesSuccess, { results: Movie[] }>;
+export type MoviesSuccessAction = ApiSuccessAction<MoviesActionTypes.GetMoviesSuccess, {
+    page: number,
+    results: Movie[],
+    total_pages: number,
+}>;
 
 export type MoviesActions =
   | MoviesErrorAction
@@ -57,7 +61,7 @@ export interface Movie {
 
 export interface MoviesState {
     loading: boolean;
-    movies: Movie[];
     page: number;
+    results: Movie[];
     totalPages: number;
 }

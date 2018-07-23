@@ -59,12 +59,12 @@ const Content = styled.div`
 `;
 const GenreChip = styled.span`
   background-color: ${palette.brand.green700};
-  border-radius: 0.5rem;
+  border-radius: 0.625rem;
   color: ${palette.primary.white};
   font-size: 0.85rem;
   display: inline-block;
-  height: 1rem;
-  line-height: 1rem;
+  height: 1.25rem;
+  line-height: 1.25rem;
   margin: 0 0.5rem 0.5rem 0;
   padding: 0 0.5rem;
 `;

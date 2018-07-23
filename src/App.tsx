@@ -1,15 +1,24 @@
 import * as React from 'react';
 import { Provider } from 'react-redux';
-import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
+import {
+    BrowserRouter,
+    Redirect,
+    Route,
+    Switch
+} from 'react-router-dom';
 import { Store } from 'redux';
 import { injectGlobal } from 'styled-components';
 
 // Components.
 import Shell from './components/Shell';
+import Movie from './pages/Movie';
 import Movies from './pages/Movies';
 
 // Store.
-import { ApplicationState, configureStore } from './store';
+import {
+    ApplicationState,
+    configureStore
+} from './store';
 
 // Styles.
 import palette from './styles/palette';
@@ -121,6 +130,10 @@ const App: React.SFC = () => (
         <BrowserRouter>
             <Shell>
                 <Switch>
+                    <Route
+                        exact
+                        path='/movie/:id'
+                        component={ Movie } />
                     <Route
                         exact
                         path='/movies'

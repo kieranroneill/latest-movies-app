@@ -1,9 +1,6 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
-// Components.
-import Header from '../Header';
-
 // Styles.
 import palette from '../../styles/palette';
 import typography from '../../styles/typography';
@@ -24,7 +21,6 @@ const Wrapper = styled.div`
 
 const Shell: React.SFC<Props> = (props: Props) => (
     <Wrapper>
-        <Header />
         {props.children}
     </Wrapper>
 );

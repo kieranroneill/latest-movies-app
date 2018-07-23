@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 // Components.
@@ -13,7 +14,7 @@ import { imageBaseUrl } from '../../../../config/defaults';
 import { ApplicationState } from '../../../../store';
 
 // Styles.
-import palette from '../../../../styles/palette'
+import palette from '../../../../styles/palette';
 
 // Types.
 import {
@@ -55,7 +56,6 @@ const Content = styled.div`
   display: flex;
   flex-direction: column;
   padding: 0.5rem;
-  width: 100%;
 `;
 const GenreChip = styled.span`
   background-color: ${palette.brand.green700};
@@ -74,6 +74,10 @@ const GenreChipContainer = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
+`;
+const MovieTileLink = styled(Link)`
+  display: block;
+  width: 100%;
 `;
 const RatingContainer = styled.div`
   align-items: center;
@@ -100,27 +104,29 @@ const MovieTile: React.SFC<Props> = (props: Props) => (
     <Paper>
         <Container>
             <Background  imageUrl={props.movie.poster_path} />
-            <Content>
-                <Title>
-                    {props.movie.title}
-                </Title>
-                <GenreChipContainer>
-                    {
-                        props.genres.results.filter((genre: Genre) => props.movie.genre_ids.indexOf(genre.id) > -1)
-                            .map((genre: Genre, index: number) => (
-                                <GenreChip key={index}>
-                                    {genre.name}
-                                </GenreChip>
-                            ))
-                    }
-                </GenreChipContainer>
-                <RatingContainer>
-                    <RatingText>
-                        {props.movie.vote_average}
-                    </RatingText>
-                    <RatingIcon>grade</RatingIcon>
-                </RatingContainer>
-            </Content>
+            <MovieTileLink to={`/movie/${props.movie.id}`}>
+                <Content>
+                    <Title>
+                            {props.movie.title}
+                        </Title>
+                        <GenreChipContainer>
+                            {
+                                props.genres.results.filter((genre: Genre) => props.movie.genre_ids.indexOf(genre.id) > -1)
+                                    .map((genre: Genre, index: number) => (
+                                        <GenreChip key={index}>
+                                            {genre.name}
+                                        </GenreChip>
+                                    ))
+                            }
+                        </GenreChipContainer>
+                        <RatingContainer>
+                            <RatingText>
+                                {props.movie.vote_average}
+                            </RatingText>
+                            <RatingIcon>grade</RatingIcon>
+                        </RatingContainer>
+                </Content>
+            </MovieTileLink>
         </Container>
     </Paper>
 );

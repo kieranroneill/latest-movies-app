@@ -1,0 +1,1104 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`src/pages/Movies/components/FilterPanel <FilterPanel /> snapshots should match the snapshot with default props 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <FilterPanel
+    addGenreId={[MockFunction]}
+    filters={
+      Object {
+        "averageRating": 3,
+        "genreIds": Array [],
+      }
+    }
+    genres={
+      Object {
+        "loading": false,
+        "results": Array [
+          Object {
+            "id": 2653,
+            "name": "Violent Disney",
+          },
+        ],
+      }
+    }
+    removeGenreId={[MockFunction]}
+    setAverageRating={[MockFunction]}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": <WithStyles(ExpansionPanel)>
+        <WithStyles(ExpansionPanelSummary)
+          expandIcon={<pure(ExpandMore) />}
+        >
+          <WithStyles(Typography)>
+            Filter by...
+          </WithStyles(Typography)>
+        </WithStyles(ExpansionPanelSummary)>
+        <WithStyles(ExpansionPanelDetails)>
+          <styled.div>
+            <WithStyles(FormControl)
+              component="fieldset"
+              style={
+                Object {
+                  "margin": "0 0 1rem",
+                }
+              }
+            >
+              <WithStyles(FormLabel)
+                component="legend"
+              >
+                Genre
+              </WithStyles(FormLabel)>
+              <WithStyles(FormGroup)
+                row={true}
+              >
+                <WithStyles(FormControlLabel)
+                  control={
+                    <WithStyles(Checkbox)
+                      checked={false}
+                      onChange={[Function]}
+                      value="2653"
+                    />
+                  }
+                  label="Violent Disney"
+                />
+              </WithStyles(FormGroup)>
+            </WithStyles(FormControl)>
+            <WithStyles(FormControl)
+              component="fieldset"
+              style={
+                Object {
+                  "margin": "0 0 1rem",
+                }
+              }
+            >
+              <WithStyles(FormLabel)
+                component="legend"
+              >
+                Average rating
+              </WithStyles(FormLabel)>
+              <styled.div>
+                <p>
+                  0
+                </p>
+                <WithStyles(Slider)
+                  max={10}
+                  min={0}
+                  onChange={[Function]}
+                  onDragEnd={[Function]}
+                  step={0.5}
+                  value={3}
+                />
+                <p>
+                  3
+                </p>
+              </styled.div>
+            </WithStyles(FormControl)>
+          </styled.div>
+        </WithStyles(ExpansionPanelDetails)>
+      </WithStyles(ExpansionPanel)>,
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": Array [
+          <WithStyles(ExpansionPanelSummary)
+            expandIcon={<pure(ExpandMore) />}
+          >
+            <WithStyles(Typography)>
+              Filter by...
+            </WithStyles(Typography)>
+          </WithStyles(ExpansionPanelSummary)>,
+          <WithStyles(ExpansionPanelDetails)>
+            <styled.div>
+              <WithStyles(FormControl)
+                component="fieldset"
+                style={
+                  Object {
+                    "margin": "0 0 1rem",
+                  }
+                }
+              >
+                <WithStyles(FormLabel)
+                  component="legend"
+                >
+                  Genre
+                </WithStyles(FormLabel)>
+                <WithStyles(FormGroup)
+                  row={true}
+                >
+                  <WithStyles(FormControlLabel)
+                    control={
+                      <WithStyles(Checkbox)
+                        checked={false}
+                        onChange={[Function]}
+                        value="2653"
+                      />
+                    }
+                    label="Violent Disney"
+                  />
+                </WithStyles(FormGroup)>
+              </WithStyles(FormControl)>
+              <WithStyles(FormControl)
+                component="fieldset"
+                style={
+                  Object {
+                    "margin": "0 0 1rem",
+                  }
+                }
+              >
+                <WithStyles(FormLabel)
+                  component="legend"
+                >
+                  Average rating
+                </WithStyles(FormLabel)>
+                <styled.div>
+                  <p>
+                    0
+                  </p>
+                  <WithStyles(Slider)
+                    max={10}
+                    min={0}
+                    onChange={[Function]}
+                    onDragEnd={[Function]}
+                    step={0.5}
+                    value={3}
+                  />
+                  <p>
+                    3
+                  </p>
+                </styled.div>
+              </WithStyles(FormControl)>
+            </styled.div>
+          </WithStyles(ExpansionPanelDetails)>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": <WithStyles(Typography)>
+              Filter by...
+            </WithStyles(Typography)>,
+            "expandIcon": <pure(ExpandMore) />,
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": "Filter by...",
+            },
+            "ref": null,
+            "rendered": "Filter by...",
+            "type": [Function],
+          },
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": <styled.div>
+              <WithStyles(FormControl)
+                component="fieldset"
+                style={
+                  Object {
+                    "margin": "0 0 1rem",
+                  }
+                }
+              >
+                <WithStyles(FormLabel)
+                  component="legend"
+                >
+                  Genre
+                </WithStyles(FormLabel)>
+                <WithStyles(FormGroup)
+                  row={true}
+                >
+                  <WithStyles(FormControlLabel)
+                    control={
+                      <WithStyles(Checkbox)
+                        checked={false}
+                        onChange={[Function]}
+                        value="2653"
+                      />
+                    }
+                    label="Violent Disney"
+                  />
+                </WithStyles(FormGroup)>
+              </WithStyles(FormControl)>
+              <WithStyles(FormControl)
+                component="fieldset"
+                style={
+                  Object {
+                    "margin": "0 0 1rem",
+                  }
+                }
+              >
+                <WithStyles(FormLabel)
+                  component="legend"
+                >
+                  Average rating
+                </WithStyles(FormLabel)>
+                <styled.div>
+                  <p>
+                    0
+                  </p>
+                  <WithStyles(Slider)
+                    max={10}
+                    min={0}
+                    onChange={[Function]}
+                    onDragEnd={[Function]}
+                    step={0.5}
+                    value={3}
+                  />
+                  <p>
+                    3
+                  </p>
+                </styled.div>
+              </WithStyles(FormControl)>
+            </styled.div>,
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": Array [
+                <WithStyles(FormControl)
+                  component="fieldset"
+                  style={
+                    Object {
+                      "margin": "0 0 1rem",
+                    }
+                  }
+                >
+                  <WithStyles(FormLabel)
+                    component="legend"
+                  >
+                    Genre
+                  </WithStyles(FormLabel)>
+                  <WithStyles(FormGroup)
+                    row={true}
+                  >
+                    <WithStyles(FormControlLabel)
+                      control={
+                        <WithStyles(Checkbox)
+                          checked={false}
+                          onChange={[Function]}
+                          value="2653"
+                        />
+                      }
+                      label="Violent Disney"
+                    />
+                  </WithStyles(FormGroup)>
+                </WithStyles(FormControl)>,
+                <WithStyles(FormControl)
+                  component="fieldset"
+                  style={
+                    Object {
+                      "margin": "0 0 1rem",
+                    }
+                  }
+                >
+                  <WithStyles(FormLabel)
+                    component="legend"
+                  >
+                    Average rating
+                  </WithStyles(FormLabel)>
+                  <styled.div>
+                    <p>
+                      0
+                    </p>
+                    <WithStyles(Slider)
+                      max={10}
+                      min={0}
+                      onChange={[Function]}
+                      onDragEnd={[Function]}
+                      step={0.5}
+                      value={3}
+                    />
+                    <p>
+                      3
+                    </p>
+                  </styled.div>
+                </WithStyles(FormControl)>,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": Array [
+                    <WithStyles(FormLabel)
+                      component="legend"
+                    >
+                      Genre
+                    </WithStyles(FormLabel)>,
+                    <WithStyles(FormGroup)
+                      row={true}
+                    >
+                      <WithStyles(FormControlLabel)
+                        control={
+                          <WithStyles(Checkbox)
+                            checked={false}
+                            onChange={[Function]}
+                            value="2653"
+                          />
+                        }
+                        label="Violent Disney"
+                      />
+                    </WithStyles(FormGroup)>,
+                  ],
+                  "component": "fieldset",
+                  "style": Object {
+                    "margin": "0 0 1rem",
+                  },
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "children": "Genre",
+                      "component": "legend",
+                    },
+                    "ref": null,
+                    "rendered": "Genre",
+                    "type": [Function],
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "children": Array [
+                        <WithStyles(FormControlLabel)
+                          control={
+                            <WithStyles(Checkbox)
+                              checked={false}
+                              onChange={[Function]}
+                              value="2653"
+                            />
+                          }
+                          label="Violent Disney"
+                        />,
+                      ],
+                      "row": true,
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      Object {
+                        "instance": null,
+                        "key": "0",
+                        "nodeType": "class",
+                        "props": Object {
+                          "control": <WithStyles(Checkbox)
+                            checked={false}
+                            onChange={[Function]}
+                            value="2653"
+                          />,
+                          "label": "Violent Disney",
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": [Function],
+                      },
+                    ],
+                    "type": [Function],
+                  },
+                ],
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": Array [
+                    <WithStyles(FormLabel)
+                      component="legend"
+                    >
+                      Average rating
+                    </WithStyles(FormLabel)>,
+                    <styled.div>
+                      <p>
+                        0
+                      </p>
+                      <WithStyles(Slider)
+                        max={10}
+                        min={0}
+                        onChange={[Function]}
+                        onDragEnd={[Function]}
+                        step={0.5}
+                        value={3}
+                      />
+                      <p>
+                        3
+                      </p>
+                    </styled.div>,
+                  ],
+                  "component": "fieldset",
+                  "style": Object {
+                    "margin": "0 0 1rem",
+                  },
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "children": "Average rating",
+                      "component": "legend",
+                    },
+                    "ref": null,
+                    "rendered": "Average rating",
+                    "type": [Function],
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "children": Array [
+                        <p>
+                          0
+                        </p>,
+                        <WithStyles(Slider)
+                          max={10}
+                          min={0}
+                          onChange={[Function]}
+                          onDragEnd={[Function]}
+                          step={0.5}
+                          value={3}
+                        />,
+                        <p>
+                          3
+                        </p>,
+                      ],
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "0",
+                        },
+                        "ref": null,
+                        "rendered": "0",
+                        "type": "p",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "class",
+                        "props": Object {
+                          "max": 10,
+                          "min": 0,
+                          "onChange": [Function],
+                          "onDragEnd": [Function],
+                          "step": 0.5,
+                          "value": 3,
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": [Function],
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": 3,
+                        },
+                        "ref": null,
+                        "rendered": 3,
+                        "type": "p",
+                      },
+                    ],
+                    "type": [Function],
+                  },
+                ],
+                "type": [Function],
+              },
+            ],
+            "type": [Function],
+          },
+          "type": [Function],
+        },
+      ],
+      "type": [Function],
+    },
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": <WithStyles(ExpansionPanel)>
+          <WithStyles(ExpansionPanelSummary)
+            expandIcon={<pure(ExpandMore) />}
+          >
+            <WithStyles(Typography)>
+              Filter by...
+            </WithStyles(Typography)>
+          </WithStyles(ExpansionPanelSummary)>
+          <WithStyles(ExpansionPanelDetails)>
+            <styled.div>
+              <WithStyles(FormControl)
+                component="fieldset"
+                style={
+                  Object {
+                    "margin": "0 0 1rem",
+                  }
+                }
+              >
+                <WithStyles(FormLabel)
+                  component="legend"
+                >
+                  Genre
+                </WithStyles(FormLabel)>
+                <WithStyles(FormGroup)
+                  row={true}
+                >
+                  <WithStyles(FormControlLabel)
+                    control={
+                      <WithStyles(Checkbox)
+                        checked={false}
+                        onChange={[Function]}
+                        value="2653"
+                      />
+                    }
+                    label="Violent Disney"
+                  />
+                </WithStyles(FormGroup)>
+              </WithStyles(FormControl)>
+              <WithStyles(FormControl)
+                component="fieldset"
+                style={
+                  Object {
+                    "margin": "0 0 1rem",
+                  }
+                }
+              >
+                <WithStyles(FormLabel)
+                  component="legend"
+                >
+                  Average rating
+                </WithStyles(FormLabel)>
+                <styled.div>
+                  <p>
+                    0
+                  </p>
+                  <WithStyles(Slider)
+                    max={10}
+                    min={0}
+                    onChange={[Function]}
+                    onDragEnd={[Function]}
+                    step={0.5}
+                    value={3}
+                  />
+                  <p>
+                    3
+                  </p>
+                </styled.div>
+              </WithStyles(FormControl)>
+            </styled.div>
+          </WithStyles(ExpansionPanelDetails)>
+        </WithStyles(ExpansionPanel)>,
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": Array [
+            <WithStyles(ExpansionPanelSummary)
+              expandIcon={<pure(ExpandMore) />}
+            >
+              <WithStyles(Typography)>
+                Filter by...
+              </WithStyles(Typography)>
+            </WithStyles(ExpansionPanelSummary)>,
+            <WithStyles(ExpansionPanelDetails)>
+              <styled.div>
+                <WithStyles(FormControl)
+                  component="fieldset"
+                  style={
+                    Object {
+                      "margin": "0 0 1rem",
+                    }
+                  }
+                >
+                  <WithStyles(FormLabel)
+                    component="legend"
+                  >
+                    Genre
+                  </WithStyles(FormLabel)>
+                  <WithStyles(FormGroup)
+                    row={true}
+                  >
+                    <WithStyles(FormControlLabel)
+                      control={
+                        <WithStyles(Checkbox)
+                          checked={false}
+                          onChange={[Function]}
+                          value="2653"
+                        />
+                      }
+                      label="Violent Disney"
+                    />
+                  </WithStyles(FormGroup)>
+                </WithStyles(FormControl)>
+                <WithStyles(FormControl)
+                  component="fieldset"
+                  style={
+                    Object {
+                      "margin": "0 0 1rem",
+                    }
+                  }
+                >
+                  <WithStyles(FormLabel)
+                    component="legend"
+                  >
+                    Average rating
+                  </WithStyles(FormLabel)>
+                  <styled.div>
+                    <p>
+                      0
+                    </p>
+                    <WithStyles(Slider)
+                      max={10}
+                      min={0}
+                      onChange={[Function]}
+                      onDragEnd={[Function]}
+                      step={0.5}
+                      value={3}
+                    />
+                    <p>
+                      3
+                    </p>
+                  </styled.div>
+                </WithStyles(FormControl)>
+              </styled.div>
+            </WithStyles(ExpansionPanelDetails)>,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": <WithStyles(Typography)>
+                Filter by...
+              </WithStyles(Typography)>,
+              "expandIcon": <pure(ExpandMore) />,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": "Filter by...",
+              },
+              "ref": null,
+              "rendered": "Filter by...",
+              "type": [Function],
+            },
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": <styled.div>
+                <WithStyles(FormControl)
+                  component="fieldset"
+                  style={
+                    Object {
+                      "margin": "0 0 1rem",
+                    }
+                  }
+                >
+                  <WithStyles(FormLabel)
+                    component="legend"
+                  >
+                    Genre
+                  </WithStyles(FormLabel)>
+                  <WithStyles(FormGroup)
+                    row={true}
+                  >
+                    <WithStyles(FormControlLabel)
+                      control={
+                        <WithStyles(Checkbox)
+                          checked={false}
+                          onChange={[Function]}
+                          value="2653"
+                        />
+                      }
+                      label="Violent Disney"
+                    />
+                  </WithStyles(FormGroup)>
+                </WithStyles(FormControl)>
+                <WithStyles(FormControl)
+                  component="fieldset"
+                  style={
+                    Object {
+                      "margin": "0 0 1rem",
+                    }
+                  }
+                >
+                  <WithStyles(FormLabel)
+                    component="legend"
+                  >
+                    Average rating
+                  </WithStyles(FormLabel)>
+                  <styled.div>
+                    <p>
+                      0
+                    </p>
+                    <WithStyles(Slider)
+                      max={10}
+                      min={0}
+                      onChange={[Function]}
+                      onDragEnd={[Function]}
+                      step={0.5}
+                      value={3}
+                    />
+                    <p>
+                      3
+                    </p>
+                  </styled.div>
+                </WithStyles(FormControl)>
+              </styled.div>,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": Array [
+                  <WithStyles(FormControl)
+                    component="fieldset"
+                    style={
+                      Object {
+                        "margin": "0 0 1rem",
+                      }
+                    }
+                  >
+                    <WithStyles(FormLabel)
+                      component="legend"
+                    >
+                      Genre
+                    </WithStyles(FormLabel)>
+                    <WithStyles(FormGroup)
+                      row={true}
+                    >
+                      <WithStyles(FormControlLabel)
+                        control={
+                          <WithStyles(Checkbox)
+                            checked={false}
+                            onChange={[Function]}
+                            value="2653"
+                          />
+                        }
+                        label="Violent Disney"
+                      />
+                    </WithStyles(FormGroup)>
+                  </WithStyles(FormControl)>,
+                  <WithStyles(FormControl)
+                    component="fieldset"
+                    style={
+                      Object {
+                        "margin": "0 0 1rem",
+                      }
+                    }
+                  >
+                    <WithStyles(FormLabel)
+                      component="legend"
+                    >
+                      Average rating
+                    </WithStyles(FormLabel)>
+                    <styled.div>
+                      <p>
+                        0
+                      </p>
+                      <WithStyles(Slider)
+                        max={10}
+                        min={0}
+                        onChange={[Function]}
+                        onDragEnd={[Function]}
+                        step={0.5}
+                        value={3}
+                      />
+                      <p>
+                        3
+                      </p>
+                    </styled.div>
+                  </WithStyles(FormControl)>,
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": Array [
+                      <WithStyles(FormLabel)
+                        component="legend"
+                      >
+                        Genre
+                      </WithStyles(FormLabel)>,
+                      <WithStyles(FormGroup)
+                        row={true}
+                      >
+                        <WithStyles(FormControlLabel)
+                          control={
+                            <WithStyles(Checkbox)
+                              checked={false}
+                              onChange={[Function]}
+                              value="2653"
+                            />
+                          }
+                          label="Violent Disney"
+                        />
+                      </WithStyles(FormGroup)>,
+                    ],
+                    "component": "fieldset",
+                    "style": Object {
+                      "margin": "0 0 1rem",
+                    },
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "class",
+                      "props": Object {
+                        "children": "Genre",
+                        "component": "legend",
+                      },
+                      "ref": null,
+                      "rendered": "Genre",
+                      "type": [Function],
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "class",
+                      "props": Object {
+                        "children": Array [
+                          <WithStyles(FormControlLabel)
+                            control={
+                              <WithStyles(Checkbox)
+                                checked={false}
+                                onChange={[Function]}
+                                value="2653"
+                              />
+                            }
+                            label="Violent Disney"
+                          />,
+                        ],
+                        "row": true,
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        Object {
+                          "instance": null,
+                          "key": "0",
+                          "nodeType": "class",
+                          "props": Object {
+                            "control": <WithStyles(Checkbox)
+                              checked={false}
+                              onChange={[Function]}
+                              value="2653"
+                            />,
+                            "label": "Violent Disney",
+                          },
+                          "ref": null,
+                          "rendered": null,
+                          "type": [Function],
+                        },
+                      ],
+                      "type": [Function],
+                    },
+                  ],
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": Array [
+                      <WithStyles(FormLabel)
+                        component="legend"
+                      >
+                        Average rating
+                      </WithStyles(FormLabel)>,
+                      <styled.div>
+                        <p>
+                          0
+                        </p>
+                        <WithStyles(Slider)
+                          max={10}
+                          min={0}
+                          onChange={[Function]}
+                          onDragEnd={[Function]}
+                          step={0.5}
+                          value={3}
+                        />
+                        <p>
+                          3
+                        </p>
+                      </styled.div>,
+                    ],
+                    "component": "fieldset",
+                    "style": Object {
+                      "margin": "0 0 1rem",
+                    },
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "class",
+                      "props": Object {
+                        "children": "Average rating",
+                        "component": "legend",
+                      },
+                      "ref": null,
+                      "rendered": "Average rating",
+                      "type": [Function],
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "class",
+                      "props": Object {
+                        "children": Array [
+                          <p>
+                            0
+                          </p>,
+                          <WithStyles(Slider)
+                            max={10}
+                            min={0}
+                            onChange={[Function]}
+                            onDragEnd={[Function]}
+                            step={0.5}
+                            value={3}
+                          />,
+                          <p>
+                            3
+                          </p>,
+                        ],
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": "0",
+                          },
+                          "ref": null,
+                          "rendered": "0",
+                          "type": "p",
+                        },
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "class",
+                          "props": Object {
+                            "max": 10,
+                            "min": 0,
+                            "onChange": [Function],
+                            "onDragEnd": [Function],
+                            "step": 0.5,
+                            "value": 3,
+                          },
+                          "ref": null,
+                          "rendered": null,
+                          "type": [Function],
+                        },
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": 3,
+                          },
+                          "ref": null,
+                          "rendered": 3,
+                          "type": "p",
+                        },
+                      ],
+                      "type": [Function],
+                    },
+                  ],
+                  "type": [Function],
+                },
+              ],
+              "type": [Function],
+            },
+            "type": [Function],
+          },
+        ],
+        "type": [Function],
+      },
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

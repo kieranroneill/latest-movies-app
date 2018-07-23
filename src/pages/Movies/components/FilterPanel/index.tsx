@@ -46,6 +46,10 @@ interface Props {
     setAverageRating: typeof setAverageRating;
 }
 
+interface State {
+    averageRatingValue: number;
+}
+
 const ControlContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -60,12 +64,19 @@ const Wrapper = styled.div`
   max-width: 800px;
 `;
 
-class FilterPanel extends React.PureComponent<Props> {
+class FilterPanel extends React.PureComponent<Props, State> {
+    public state: State;
+
     constructor(props: Props) {
         super(props);
 
+        this.state = {
+            averageRatingValue: props.filters.averageRating,
+        };
+
         // Bind functions.
         this.onSliderChange = this.onSliderChange.bind(this);
+        this.onSliderDragEnd = this.onSliderDragEnd.bind(this);
     }
 
     onGenreChange: (id: number) =>
@@ -80,8 +91,11 @@ class FilterPanel extends React.PureComponent<Props> {
     };
 
     onSliderChange(event: React.ChangeEvent<{}>, value: number): void {
-        console.dir(event);
-        this.props.setAverageRating(value);
+        this.setState({ averageRatingValue: value });
+    }
+
+    onSliderDragEnd(): void {
+        this.props.setAverageRating(this.state.averageRatingValue);
     }
 
     render(): JSX.Element {
@@ -89,6 +103,7 @@ class FilterPanel extends React.PureComponent<Props> {
             filters,
             genres
         } = this.props;
+        const { averageRatingValue } = this.state;
 
         return (
             <Wrapper>
@@ -129,11 +144,12 @@ class FilterPanel extends React.PureComponent<Props> {
                                     <p>0</p>
                                     <Slider
                                         onChange={this.onSliderChange}
+                                        onDragEnd={this.onSliderDragEnd}
                                         max={10}
                                         min={0}
                                         step={0.5}
-                                        value={filters.averageRating} />
-                                    <p>{filters.averageRating}</p>
+                                        value={averageRatingValue} />
+                                    <p>{averageRatingValue}</p>
                                 </SliderContainer>
                             </FormControl>
                         </ControlContainer>
@@ -159,5 +175,6 @@ const mapStateToProps = (state: ApplicationState) => {
 export default connect(mapStateToProps, mapDispatchToProps)(FilterPanel);
 export {
     FilterPanel,
-    Props
+    Props,
+    State
 };

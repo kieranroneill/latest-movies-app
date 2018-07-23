@@ -5,6 +5,12 @@ ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Movies
+    filters={
+      Object {
+        "averageRating": 10,
+        "genreIds": Array [],
+      }
+    }
     genres={
       Object {
         "loading": false,
@@ -78,11 +84,19 @@ ShallowWrapper {
           onScroll={[Function]}
         />,
         <styled.div>
+          <Connect(FilterPanel) />
           <WithStyles(Grid)
             container={true}
             justify="center"
             spacing={16}
           />
+          <styled.div>
+            <WithStyles(Button)
+              onClick={[Function]}
+            >
+              Load more
+            </WithStyles(Button)>
+          </styled.div>
         </styled.div>,
       ],
     },
@@ -105,16 +119,32 @@ ShallowWrapper {
         "nodeType": "class",
         "props": Object {
           "children": Array [
+            <Connect(FilterPanel) />,
             <WithStyles(Grid)
               container={true}
               justify="center"
               spacing={16}
             />,
-            false,
+            <styled.div>
+              <WithStyles(Button)
+                onClick={[Function]}
+              >
+                Load more
+              </WithStyles(Button)>
+            </styled.div>,
           ],
         },
         "ref": null,
         "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
           Object {
             "instance": null,
             "key": undefined,
@@ -129,7 +159,32 @@ ShallowWrapper {
             "rendered": Array [],
             "type": [Function],
           },
-          false,
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": <WithStyles(Button)
+                onClick={[Function]}
+              >
+                Load more
+              </WithStyles(Button)>,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": "Load more",
+                "onClick": [Function],
+              },
+              "ref": null,
+              "rendered": "Load more",
+              "type": [Function],
+            },
+            "type": [Function],
+          },
         ],
         "type": [Function],
       },
@@ -147,11 +202,19 @@ ShallowWrapper {
             onScroll={[Function]}
           />,
           <styled.div>
+            <Connect(FilterPanel) />
             <WithStyles(Grid)
               container={true}
               justify="center"
               spacing={16}
             />
+            <styled.div>
+              <WithStyles(Button)
+                onClick={[Function]}
+              >
+                Load more
+              </WithStyles(Button)>
+            </styled.div>
           </styled.div>,
         ],
       },
@@ -174,16 +237,32 @@ ShallowWrapper {
           "nodeType": "class",
           "props": Object {
             "children": Array [
+              <Connect(FilterPanel) />,
               <WithStyles(Grid)
                 container={true}
                 justify="center"
                 spacing={16}
               />,
-              false,
+              <styled.div>
+                <WithStyles(Button)
+                  onClick={[Function]}
+                >
+                  Load more
+                </WithStyles(Button)>
+              </styled.div>,
             ],
           },
           "ref": null,
           "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
             Object {
               "instance": null,
               "key": undefined,
@@ -198,7 +277,32 @@ ShallowWrapper {
               "rendered": Array [],
               "type": [Function],
             },
-            false,
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": <WithStyles(Button)
+                  onClick={[Function]}
+                >
+                  Load more
+                </WithStyles(Button)>,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": "Load more",
+                  "onClick": [Function],
+                },
+                "ref": null,
+                "rendered": "Load more",
+                "type": [Function],
+              },
+              "type": [Function],
+            },
           ],
           "type": [Function],
         },

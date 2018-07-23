@@ -1,4 +1,4 @@
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import * as React from 'react';
 
 // Components.
@@ -42,13 +42,13 @@ describe('src/pages/Movies/components/MovieTile/index.tsx', () => {
 
     describe('<MovieTile /> snapshots', () => {
         it('should match the snapshot with default props', () => {
-            expect(mount(<MovieTile {...props} />)).toMatchSnapshot();
+            expect(shallow(<MovieTile {...props} />)).toMatchSnapshot();
         });
 
         it('should match the snapshot with a default placeholder image', () => {
             props.movie.poster_path = null;
 
-            expect(mount(<MovieTile {...props} />)).toMatchSnapshot();
+            expect(shallow(<MovieTile {...props} />)).toMatchSnapshot();
         });
     });
 });

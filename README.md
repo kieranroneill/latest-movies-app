@@ -45,6 +45,8 @@ The UI was developed using the fantastic [MaterialUI](https://material-ui.com) l
 * [Jest](https://jestjs.io/en/) - for runner, expectations and coverage.
 * [Sinon](http://sinonjs.org/) - for stubing and spying.
 
+You can run tests by running: `yarn test`.
+
 ## Notes
 
 All API calls are closely coupled with the redux store using a custom API middleware that can be accessed using special actions.
